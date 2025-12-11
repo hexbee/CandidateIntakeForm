@@ -1,6 +1,6 @@
-import React from 'react';
-import { FieldConfig } from '../types';
-import { Lock, AlertCircle } from 'lucide-react';
+import React from "react";
+import { FieldConfig } from "../types";
+import { Lock, AlertCircle } from "lucide-react";
 
 interface FieldInputProps {
   field: FieldConfig;
@@ -9,16 +9,22 @@ interface FieldInputProps {
   error?: string;
 }
 
-const FieldInput: React.FC<FieldInputProps> = ({ field, value, onChange, error }) => {
-  const baseClasses = "w-full p-2.5 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors";
-  const borderClasses = error 
-    ? "border-red-500 bg-red-50" 
-    : field.isSensitive 
-      ? "border-amber-300 bg-amber-50/30" 
+const FieldInput: React.FC<FieldInputProps> = ({
+  field,
+  value,
+  onChange,
+  error,
+}) => {
+  const baseClasses =
+    "w-full p-2.5 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors";
+  const borderClasses = error
+    ? "border-red-500 bg-red-50"
+    : field.isSensitive
+      ? "border-amber-300 bg-amber-50/30"
       : "border-slate-300 bg-white";
 
   const renderInput = () => {
-    if (field.type === 'textarea') {
+    if (field.type === "textarea") {
       return (
         <textarea
           rows={3}
@@ -30,7 +36,7 @@ const FieldInput: React.FC<FieldInputProps> = ({ field, value, onChange, error }
       );
     }
 
-    if (field.type === 'select') {
+    if (field.type === "select") {
       return (
         <select
           value={value}
@@ -38,8 +44,10 @@ const FieldInput: React.FC<FieldInputProps> = ({ field, value, onChange, error }
           className={`${baseClasses} ${borderClasses}`}
         >
           <option value="">请选择</option>
-          {field.options?.map(opt => (
-            <option key={opt} value={opt}>{opt}</option>
+          {field.options?.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
           ))}
         </select>
       );
@@ -47,7 +55,7 @@ const FieldInput: React.FC<FieldInputProps> = ({ field, value, onChange, error }
 
     return (
       <input
-        type={field.type || 'text'}
+        type={field.type || "text"}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={field.placeholder || "请输入..."}
@@ -77,9 +85,9 @@ const FieldInput: React.FC<FieldInputProps> = ({ field, value, onChange, error }
           )}
         </div>
       </div>
-      
+
       {renderInput()}
-      
+
       {error && (
         <p className="mt-1 text-xs text-red-600 flex items-center">
           <AlertCircle size={12} className="mr-1" />

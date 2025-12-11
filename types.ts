@@ -1,9 +1,9 @@
-export type FieldCategory = 
-  | 'personal' 
-  | 'professional' 
-  | 'preferences' 
-  | 'financial_legal' 
-  | 'meta';
+export type FieldCategory =
+  | "personal"
+  | "professional"
+  | "preferences"
+  | "financial_legal"
+  | "meta";
 
 export interface FieldConfig {
   key: string;
@@ -12,7 +12,7 @@ export interface FieldConfig {
   isSensitive: boolean;
   isOptional: boolean;
   placeholder?: string;
-  type?: 'text' | 'date' | 'number' | 'textarea' | 'select' | 'email' | 'tel';
+  type?: "text" | "date" | "number" | "textarea" | "select" | "email" | "tel";
   options?: string[]; // For select inputs
 }
 

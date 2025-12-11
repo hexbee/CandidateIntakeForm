@@ -1,5 +1,5 @@
 {
-  "name": "SecureInfo Collect",
+  "name": "Candidate Intake Form",
   "description": "A structured information collection system for candidate profiles with sensitive data handling and multi-format export (CSV, PDF, MD).",
   "requestFramePermissions": []
 }
