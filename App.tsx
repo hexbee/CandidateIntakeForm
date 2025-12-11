@@ -112,6 +112,9 @@ const App: React.FC = () => {
         <div className="flex items-center gap-2 font-bold text-slate-800">
           <ShieldCheck className="text-blue-600" />
           <span>Candidate Intake</span>
+          <span className="ml-2 px-2 py-0.5 text-[10px] bg-green-100 text-green-700 rounded-full border border-green-200">
+            Local Only
+          </span>
         </div>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -129,9 +132,24 @@ const App: React.FC = () => {
       `}
       >
         <div className="h-full flex flex-col">
-          <div className="p-6 border-b hidden md:flex items-center gap-2 font-bold text-xl text-slate-800">
-            <ShieldCheck className="text-blue-600" size={28} />
-            <span>Candidate Intake</span>
+          <div className="p-6 border-b hidden md:flex items-center gap-3">
+            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-100">
+              <ShieldCheck className="text-white" size={20} />
+            </div>
+            <div className="flex flex-col">
+              <span className="font-bold text-lg text-slate-900 leading-tight tracking-tight">
+                Candidate Intake
+              </span>
+              <div className="flex items-center gap-1.5 mt-1">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider">
+                  Privacy First
+                </span>
+              </div>
+            </div>
           </div>
 
           <nav className="flex-1 overflow-y-auto p-4 space-y-2">
@@ -246,6 +264,25 @@ const App: React.FC = () => {
             <p className="text-slate-500">
               {SECTIONS.find((s) => s.id === activeSection)?.description}
             </p>
+          </div>
+
+          {/* Privacy Banner */}
+          <div className="mb-6 bg-blue-50 border border-blue-100 rounded-lg p-4 flex items-start gap-3 animate-fade-in">
+            <ShieldCheck className="text-blue-600 mt-0.5 shrink-0" size={20} />
+            <div>
+              <h3 className="text-blue-900 font-medium text-sm">
+                数据安全承诺 (Privacy & Security)
+              </h3>
+              <p className="text-blue-700 text-xs mt-1 leading-relaxed">
+                本应用采用 <strong>纯前端技术</strong> 构建，您填写的所有信息都{" "}
+                <strong>仅存储在您的本地浏览器中</strong>
+                ，绝不会上传至任何云端服务器或数据库。
+                <span className="block mt-1 opacity-80">
+                  Your data is stored locally in your browser and is never
+                  uploaded to any server.
+                </span>
+              </p>
+            </div>
           </div>
 
           <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
